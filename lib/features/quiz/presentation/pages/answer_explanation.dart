@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz_app_flutter/core/services/routes/routes.dart';
 import 'package:quiz_app_flutter/core/theme/theme.dart';
 import 'package:quiz_app_flutter/core/utils/assets.dart';
 import 'package:quiz_app_flutter/core/widgets/button/button.dart';
@@ -139,7 +140,9 @@ class _AnswerExplanationState extends State<AnswerExplanation> {
                       fontSize: size.height * .02,
                     ),
                     height: size.height * .062,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, Routes.trueFalseQuestion);
+                    },
                   ),
                 ],
               ),

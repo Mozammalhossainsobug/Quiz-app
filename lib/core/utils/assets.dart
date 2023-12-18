@@ -2,6 +2,7 @@ class Assets {
   static const String imagePath = 'assets/images';
 
   static const String appLogo = '$imagePath/logo.png';
+  static const String trueFalseImage = '$imagePath/true_false_iamge.png';
   static const String awardLogo = '$imagePath/award_logo.svg';
   static const String googleLogo = '$imagePath/google_logo.svg';
   static const String facebookLogo = '$imagePath/facebook_logo.svg';

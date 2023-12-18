@@ -2,6 +2,7 @@ class Routes {
   static const String splash = '/splash';
   static const String quiz = '/quiz';
   static const String answerExplanation = '/answerExplanation';
+  static const String trueFalseQuestion = '/trueFalseQuestion';
   static const String signUp = '/sign_up';
   static const String signIn = '/sign_in';
   static const String home = '/home';

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app_flutter/core/services/routes/routes.dart';
 import 'package:quiz_app_flutter/features/quiz/presentation/pages/answer_explanation.dart';
 import 'package:quiz_app_flutter/features/quiz/presentation/pages/quiz_page.dart';
+import 'package:quiz_app_flutter/features/quiz/presentation/pages/true_false_questions.dart';
 import 'package:quiz_app_flutter/features/splash_screen/page/splash_screen_page.dart';
 
 class RouteGenerator {
@@ -21,6 +22,11 @@ class RouteGenerator {
       case Routes.answerExplanation:
         return MaterialPageRoute(
           builder: (_) => const AnswerExplanation(),
+        );
+
+      case Routes.trueFalseQuestion:
+        return MaterialPageRoute(
+          builder: (_) => const TrueFalseQuestion(),
         );
       //
       // case Routes.signIn:
