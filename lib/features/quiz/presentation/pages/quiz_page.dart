@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz_app_flutter/core/services/routes/routes.dart';
 import 'package:quiz_app_flutter/core/theme/colors.dart';
 import 'package:quiz_app_flutter/core/utils/assets.dart';
 import 'package:quiz_app_flutter/features/quiz/presentation/widgets/options_widget.dart';
@@ -60,7 +61,7 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                   Container(
                     width: size.width * .5,
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: LinearProgressIndicator(
                       backgroundColor: UIColors.purpleLight.withOpacity(0.5),
                       color: UIColors.white,
@@ -87,7 +88,7 @@ class _QuizPageState extends State<QuizPage> {
                           ),
                         ),
                         Text(
-                          '1',
+                          '35',
                           style: GoogleFonts.nunito(
                             color: UIColors.white,
                             fontWeight: FontWeight.bold,
@@ -121,9 +122,9 @@ class _QuizPageState extends State<QuizPage> {
                             child: CircularProgressIndicator(
                               value: 0.6,
                               strokeWidth: size.width * .1,
-                              color: Colors.pink.withOpacity(0.1),
+                              color: Colors.pink.withOpacity(0.5),
                               backgroundColor:
-                                  Colors.pinkAccent.withOpacity(0.6),
+                                  Colors.pinkAccent.withOpacity(0.1),
                             ),
                           ),
                           Positioned(
@@ -162,9 +163,15 @@ class _QuizPageState extends State<QuizPage> {
                   SizedBox(height: size.height * .02),
                   Column(
                     children: [
-                      OptionsWidget(
-                        isClicked: true,
-                        options: 'Robin van Persie',
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, Routes.answerExplanation);
+                        },
+                        child: OptionsWidget(
+                          isClicked: true,
+                          options: 'Robin van Persie',
+                        ),
                       ),
                       OptionsWidget(
                         options: 'Sadio Mane',

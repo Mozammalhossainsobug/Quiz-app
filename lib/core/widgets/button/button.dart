@@ -95,7 +95,7 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = this.height;
-    const borderRadius = 16.0;
+    const borderRadius = 20.0;
 
     return isBackButton
         ? GestureDetector(
@@ -125,7 +125,8 @@ class Button extends StatelessWidget {
                 ? ElevatedButton.styleFrom(
                     elevation: 0,
                     fixedSize: Size(width, height),
-                    backgroundColor: background ?? UIColors.pineGreen,
+                    backgroundColor:
+                        background ?? UIColors.purple.withOpacity(0.9),
                     disabledBackgroundColor: UIColors.antiFlashWhite,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(borderRadius),

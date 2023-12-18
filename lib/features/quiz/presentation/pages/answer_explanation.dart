@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app_flutter/core/theme/theme.dart';
 import 'package:quiz_app_flutter/core/utils/assets.dart';
+import 'package:quiz_app_flutter/core/widgets/button/button.dart';
+import 'package:quiz_app_flutter/features/quiz/presentation/widgets/correct_wrong_answer_widget.dart';
 import 'package:quiz_app_flutter/features/quiz/presentation/widgets/options_widget.dart';
 
 class AnswerExplanation extends StatefulWidget {
@@ -29,72 +32,26 @@ class _AnswerExplanationState extends State<AnswerExplanation> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    width: size.width * .13,
-                    height: size.width * .09,
-                    decoration: BoxDecoration(
-                      color: UIColors.purpleLight.withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.all(2.0),
-                          child: Icon(
-                            Icons.person,
-                            color: UIColors.white,
-                            size: 20,
-                          ),
+                  SizedBox(
+                    width: size.width * .7,
+                    height: size.width * .1,
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 10.sp),
+                      child: Text(
+                        'Answer Explanation',
+                        style: TextStyle(
+                          color: UIColors.white,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 21.sp,
                         ),
-                        Text(
-                          '1',
-                          style: GoogleFonts.nunito(
-                            color: UIColors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                        textAlign: TextAlign.right,
+                      ),
                     ),
                   ),
-                  Container(
-                    width: size.width * .5,
-                    padding: const EdgeInsets.all(16),
-                    child: LinearProgressIndicator(
-                      backgroundColor: UIColors.purpleLight.withOpacity(0.5),
-                      color: UIColors.white,
-                      value: 0.2,
-                    ),
-                  ),
-                  Container(
-                    width: size.width * .15,
-                    height: size.width * .09,
-                    decoration: BoxDecoration(
-                      color: Colors.orange,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: SvgPicture.asset(
-                            Assets.awardLogo,
-                            height: size.height * .022,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          '1',
-                          style: GoogleFonts.nunito(
-                            color: UIColors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )
-                      ],
-                    ),
+                  Icon(
+                    Icons.close,
+                    color: Colors.white,
+                    size: 30.sp,
                   ),
                 ],
               ),
@@ -108,74 +65,81 @@ class _AnswerExplanationState extends State<AnswerExplanation> {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Stack(
-                        clipBehavior: Clip.none,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: CircularProgressIndicator(
-                              value: 0.6,
-                              strokeWidth: size.width * .1,
-                              color: Colors.pink.withOpacity(0.1),
-                              backgroundColor:
-                                  Colors.pinkAccent.withOpacity(0.6),
-                            ),
-                          ),
-                          Positioned(
-                            left: size.width * .059,
-                            top: size.height * .015,
-                            child: Text(
-                              '6',
-                              style: GoogleFonts.nunito(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w800,
-                                fontSize: size.height * .035,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: size.height * .02),
-                  Text(
-                    'QUESTION 3 OF 10',
-                    style: GoogleFonts.nunito(
-                      color: UIColors.gray,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: size.height * .02),
-                  Text(
-                    'Which player scored the fastest hat-trick in the Premier League?',
-                    style: GoogleFonts.nunito(
-                      color: UIColors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: size.height * .025,
-                    ),
-                  ),
-                  SizedBox(height: size.height * .02),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      OptionsWidget(
-                        isClicked: true,
-                        options: 'Robin van Persie',
+                      SizedBox(height: size.height * .02),
+                      Text(
+                        'QUESTION 3 OF 10',
+                        style: GoogleFonts.nunito(
+                          color: UIColors.gray,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      OptionsWidget(
-                        options: 'Sadio Mane',
+                      SizedBox(height: size.height * .02),
+                      Text(
+                        'Which player scored the fastest hat-trick in the Premier League?',
+                        style: GoogleFonts.nunito(
+                          color: UIColors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: size.height * .025,
+                        ),
                       ),
-                      OptionsWidget(
-                        options: 'Harry Kane',
+                      SizedBox(height: size.height * .02),
+                      Text(
+                        'SELECTED ANSWER',
+                        style: GoogleFonts.nunito(
+                          color: UIColors.gray,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      OptionsWidget(
-                        options: 'Cristiano Bentake',
+                      SizedBox(height: size.height * .01),
+                      CorrectWrongAnswerWidget(
+                        isCorrect: false,
+                        answer: 'Robin van Persie',
+                      ),
+                      SizedBox(height: size.height * .02),
+                      Text(
+                        'CORRECT ANSWER',
+                        style: GoogleFonts.nunito(
+                          color: UIColors.gray,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: size.height * .01),
+                      CorrectWrongAnswerWidget(
+                        isCorrect: true,
+                        answer: 'Sadio Mane',
+                      ),
+                      SizedBox(height: size.height * .02),
+                      Text(
+                        'EXPLANATION',
+                        style: GoogleFonts.nunito(
+                          color: UIColors.gray,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: size.height * .01),
+                      Text(
+                        'Southampton\'s Sadio Mané has scored the fastest hat-trick in Premier League history in just two minutes and 56 seconds against Aston Villa on Saturday.',
+                        style: GoogleFonts.nunito(
+                          fontSize: size.height * .018,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ],
+                  ),
+                  Button(
+                    label: 'Next',
+                    textStyle: GoogleFonts.nunito(
+                      color: UIColors.white,
+                      fontWeight: FontWeight.w800,
+                      fontSize: size.height * .02,
+                    ),
+                    height: size.height * .062,
+                    onPressed: () {},
                   ),
                 ],
               ),
